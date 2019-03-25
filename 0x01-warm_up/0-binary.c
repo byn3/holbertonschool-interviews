@@ -17,7 +17,7 @@ int binary_search_helper(int *array, size_t left, size_t right, int value)
 
 	printf("Searching in array:");
 
-	while (i<= right)
+	while (i <= right)
 	{
 		printf(" %d", array[i]);
 		if (i < right)
@@ -35,7 +35,7 @@ int binary_search_helper(int *array, size_t left, size_t right, int value)
 		return (mid);
 	/* if the value smaller than middle value, recursion left half */
 	if (array[mid] > value)
-		return (binary_search_helper(array, left, mid - 1, value));
+		return (binary_search_helper(array, left, mid, value));
 	/* ELSE recursion to the right */
 	return (binary_search_helper(array, mid + 1, right, value));
 }
