@@ -2,21 +2,30 @@
 
 #include <stdio.h>
 
-
-int * remove_copy(const int *in, size_t n, int *out, int value)
+/**
+* remove_copy - gets all values minus the zeros.
+* @in: original array
+* @n: size of array
+* @out: return new array
+* @value: the value we want to filter
+*
+* Return: the new array with filtered out zeros
+*/
+int *remove_copy(const int *in, size_t n, int *out, int value)
 {
 	for (size_t i = 0; i != n; i++)
-		if (in[i] != value) *out++ = in[i];
-
-	return out;
+		if (in[i] != value)
+			*out++ = in[i];
+	return (out);
 }
 
-/* print debugger 
-while (arrayReturn[j])
-{
-	printf("%i \n", arrayReturn[j]);
-	j++;
-}
+/**
+* slide_line - the thing that does things
+* @line: the line of things that we need to act on
+* @size: the size of line
+* @direction: the direction of the movement
+*
+* Return: 1 or 0
 */
 
 int slide_line(int *line, size_t size, int direction)
@@ -26,8 +35,8 @@ int slide_line(int *line, size_t size, int direction)
 	size_t j = 0;
 	int array[size];
 	int last = line[size - 1];
+
 	remove_copy(line, size, array, 0);
-	
 	for (i = 0; i < size; i++)
 		if (line[i] != 0)
 			nonZero++;
@@ -35,7 +44,7 @@ int slide_line(int *line, size_t size, int direction)
 	/* GO LEFT. IZQUIERDA. append the filtered array and combine */
 	if (direction < 0)
 	{
-		while(i < nonZero - 1)
+		while (i < nonZero - 1)
 		{
 			if (array[i] == array[i + 1])
 			{
