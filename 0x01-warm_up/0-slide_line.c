@@ -13,7 +13,8 @@
 */
 int *remove_copy(const int *in, size_t n, int *out, int value)
 {
-	for (size_t i = 0; i != n; i++)
+	size_t i = 0;
+	for (; i != n; i++)
 		if (in[i] != value)
 			*out++ = in[i];
 	return (out);
@@ -33,7 +34,7 @@ int slide_line(int *line, size_t size, int direction)
 	size_t i = 0;
 	size_t nonZero = 0;
 	size_t j = 0;
-	int array[size];
+	int array[200];
 	int last = line[size - 1];
 
 	remove_copy(line, size, array, 0);
